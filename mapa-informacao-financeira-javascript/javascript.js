@@ -9,7 +9,7 @@ console.log(camposResultado)
 
 todosCampos.map((el)=>{
     el.addEventListener("load",calcularExibirValores())
-    el.addEventListener("change",calcularExibirValores())
+    el.addEventListener("change",calcularExibirValores)
 })
 
 
