@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./estilos.css">
+    <title>Mapa de Informação Financeira</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td><label>Ano N-2</label></td>
+                <td><label>Ano N-1</label></td>
+                <td><label >Ano Corrente (N)</label></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label>Mapa de Informação Financeira</label></td>
+                <td><input type="text" name="mapa_n2" maxlength="4" size="10"></td>
+                <td><input type="text" name="mapa_n1" maxlength="4" size="10"></td>
+                <td><input type="date" name="f_data"></td>
+                <td><label>(Ano N-1 vs. Ano N-2)</label></td>
+            </tr>
+            <tr>
+                <td><label>Proveitos</label></td>
+                <td><div id="proveitos_n2"></div></td>
+                <td><div id="proveitos_n1"></div></td>
+                <td><div id="proveitos_a"></div></td>
+                <td><div id="proveitos"></div></td>
+            </tr>
+            <tr>
+                <td><label>Vendas</label></td>
+                <td><input type="text" name="vendas_n2" maxlength="10" size="10"></td>
+                <td><input type="text" name="vendas_n1" maxlength="10" size="10"></td>
+                <td><input type="text" name="vendas_corrente" maxlength="10" size="10"></td>
+                <td><div id="vendas_vs"></div></td>
+            </tr>
+            <tr>
+                <td><label>Prestação de Serviços</label></td>
+                <td><input type="text" name="prestacao_n2" maxlength="10" size="10"></td>
+                <td><input type="text" name="prestacao_n1" maxlength="10" size="10"></td>
+                <td><input type="text" name="prestacao_corrente" maxlength="10" size="10"></td>
+                <td><div id="prestacao_vs"></div></td>
+            </tr>
+            <tr>
+                <td><label>Custos</label></td>
+                <td><div id="custos_n2"></div></td>
+                <td><div id="custos_n1"></div></td>
+                <td><div id="custos_a"></div></td>
+                <td><div id="custos"></div></td>
+            </tr>
+            <tr>
+                <td><label>Custos com Pessoal</label></td>
+                <td><input type="text" name="custosP_n2" maxlength="10" size="10"></td>
+                <td><input type="text" name="custosP_n1" maxlength="10" size="10"></td>
+                <td><input type="text" name="custosP_corrente" maxlength="10" size="10"></td>
+                <td><div id="custosP_vs"></div></td>
+            </tr>
+            <tr>
+                <td><label>CMVC</label></td>
+                <td><input type="text" name="cmvc_n2" maxlength="10" size="10"></td>
+                <td><input type="text" name="cmvc_n1" maxlength="10" size="10"></td>
+                <td><input type="text" name="cmvc_corrente" maxlength="10" size="10"></td>
+                <td><div id="cmvc_vs"></div></td>
+            </tr>
+            <tr>
+                <td><label>Outros Custos</label></td>
+                <td><input type="text" name="outros_n2" maxlength="10" size="10"></td>
+                <td><input type="text" name="outros_n1" maxlength="10" size="10"></td>
+                <td><input type="text" name="outros_corrente" maxlength="10" size="10"></td>
+                <td><div id="outros_vs"></div></td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td><label>Margem Bruta</label></td>
+                    <td><div id="margem_n2"></div></td>
+                    <td><div id="margem_n1"></div></td>
+                    <td><div id="margem_a"></div></td>
+                    <td><div id="margem"></div></td>
+                </tr>
+            </tfoot>
+        </tbody>
+    </table>
+    
+
+    <script src="javascript.js"></script>
+</body>
+</html>

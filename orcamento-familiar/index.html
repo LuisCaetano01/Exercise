@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Orçamento</title>
+</head>
+<body>
+    <p><h1>Crie o seu orçamento familiar/individual</h1></p>
+    <form name="f_orcamento" id="f_orcamento" action="#" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <td><label>Descrição</label></td>
+                    <td><label>Valor em €</label></td>
+                    <td><label>Tipo</label></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="orcamentoCampos">
+                    <td><input type="text" name="descricao" maxlength="50" size="50"></td>
+                    <td><input type="number" name="valor" step="0.01" min="0.00"></td>
+                    <td><select name="tipo" size="1">
+                            <option value="A">a Receber</option>
+                            <option value="P">a Pagar</option>
+                        </select></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <p>
+                            <button id="btnAumentarCampos">Aumentar Campos
+                            <button id="btnConcluir">Concluir Orçamento
+                        </p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    
+    <div id="orcamentoCriado"></div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

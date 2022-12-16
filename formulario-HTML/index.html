@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./estilos.css">
+    <title>Formulário</title>
+</head>
+<body>
+    <!-- Formulário-->
+    <form name="f_registo" action="" method="get" enctype="multipart/form-data">
+
+        <label class="quebra espaco_t">O seu primeiro nome:</label>
+        <input type="text" name="f_nome" maxlength="20" size="30" required>
+
+            <fieldset disabled>
+                <label class="quebra espaco_t">Apelido:</label>
+                <input type="text" name="f_apelido" maxlength="20" size="30">
+                <small>*Parâmetro desabilitado</small>
+            </fieldset>
+
+        <label class="quebra espaco_t">Sexo:</label>
+        <select name="f_gen" size="1">
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="O">Outro</option>
+            <option value="NA">Prefiro não revelar</option>
+        </select>
+
+        <label class="quebra espaco_t">Data de nascimento</label>
+        <input type="date" name="f_data">
+
+        <label class="quebra espaco_t">Número de telemóvel:</label>
+        <input type="tel" name="f_tel" pattern="[0-9]{9}" placeholder="9xxxxxxxx">
+
+        <label class="quebra espaco_t">E-mail:</label>
+        <input type="email" name="f_email">
+
+        <label class="quebra espaco_t">URL do seu site:</label>
+        <input type="url" name="f_url">
+
+        <label class="quebra espaco_t">Escolha uma cor</label>
+        <input type="color" name="f_cor">
+
+        <label class="quebra espaco_t">Lista de cores:</label>
+        <input list="f_cores" name="f_lista_cores">
+        <datalist id="f_cores">
+            <option value="yellow">Amarelo</option>
+            <option value="red">Vermelho</option>
+            <option value="blue">Azul</option>
+            <option value="black">Preto</option>
+        </datalist>
+        <datalist id="f_cores_rgb">
+            <option value="red">Vermelho</option>
+            <option value="green">Verde</option>
+            <option value="blue">Azul</option>
+        </datalist>
+
+        <label class="quebra espaco_t">Escolha um número:</label>
+        <input type="number" name="f_numero" step="3" min="0" max="30">
+
+        <label class="quebra espaco_t">Escolha apenas imagens:</label>
+        <input type="file" name="f_imagem" accept=".jpg,.gif,.png" multiple>
+
+        <label class="quebra espaco_t">Desportos favoritos:</label>
+        <input type="checkbox" name="f_fut" value="futebol">Futebol
+        <input type="checkbox" name="f_atl" value="atletismo">Atletismo
+        <input type="checkbox" name="f_nat" value="natacao">Natação
+        <input type="checkbox" name="f_cic" value="ciclismo">Ciclismo
+
+        <label class="quebra espaco_t">Possuí automóvel?</label>
+        <input type="radio" name="f_carro" value="s">Sim
+        <input type="radio" name="f_carro" value="n" checked>Não
+
+        <label class="quebra espaco_t">Pesquisar</label>
+        <input class="quebra" type="search" name="f_pesquisa">
+
+        <label class="quebra espaco_t">Observações:</label>
+        <textarea name="f_observacoes" cols="50" rows="10" maxlength="379"></textarea>
+
+        <input type="hidden" value="f_1">
+
+        <p>
+            <input class="btn" type="reset" name="f_btn_reset" value="Limpar Formulário">
+            <input type="submit" name="f_btn_gravar" value="Enviar Formulário">
+        </p>
+
+    </form>
+    
+    <p><br></p>
+
+</body>
+</html>
