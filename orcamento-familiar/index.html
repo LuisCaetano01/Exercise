@@ -8,7 +8,6 @@
 </head>
 <body>
     <p><h1>Crie o seu orçamento familiar/individual</h1></p>
-    <form name="f_orcamento" id="f_orcamento" action="#" method="post">
         <table>
             <thead>
                 <tr>
@@ -17,14 +16,18 @@
                     <td><label>Tipo</label></td>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="orcamentoCampos">
-                    <td><input type="text" name="descricao" maxlength="50" size="50"></td>
-                    <td><input type="number" name="valor" step="0.01" min="0.00"></td>
-                    <td><select name="tipo" size="1">
-                            <option value="A">a Receber</option>
-                            <option value="P">a Pagar</option>
-                        </select></td>
+        </table>
+        <table>
+            <tbody id="campos">
+                <tr>
+                    <div id="orcamentoCampos">
+                        <td><input type="text" name="descricao" maxlength="50" size="50"></td>
+                        <td><input type="number" name="valor" step="0.01" min="0.00"></td>
+                        <td><select name="tipo" size="1">
+                                <option value="A">a Receber</option>
+                                <option value="P">a Pagar</option>
+                            </select></td>
+                    </div>
                 </tr>
             </tbody>
             <tfoot>
@@ -38,9 +41,8 @@
                 </tr>
             </tfoot>
         </table>
-    </form>
+
     
-    <div id="orcamentoCriado"></div>
 
     <script src="javascript.js"></script>
 </body>
