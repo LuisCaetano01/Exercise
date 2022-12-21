@@ -6,23 +6,22 @@ const tbodyCampos=document.querySelector("tbody")
 
 
 function iniciarPagina(){
-    n_campos = 5
-    addFields()
+    addFields(5)
 }
 
 function btn_func(){
-    n_campos = 1
-    console.log(n_campos)
-    addFields()
+    addFields(1)
 }
 
 
-var n_campos=0  //Var da função addField
-//Função para criar todos os campos de input
-function addFields(){
+var n_campos=0  //Variáveis da função addField
+var forContar=0
+//Função para criar do zero todos os campos de input, parametro para quantidade de campos
+function addFields(numeroCampos){
+    n_campos = numeroCampos
     const container = document.getElementById("orcamentoCampos")    
 
-    for (var i = 0;i<n_campos;i++){
+    for (let i = forContar;i<n_campos;i++){
         //Cria campo descrição
         let td1 = document.createElement("td")
         let input = document.createElement("input")
@@ -42,19 +41,19 @@ function addFields(){
         let boxOpt = document.createElement("SELECT") //cria Select 
         boxOpt.setAttribute("id", "mySelect");
         //cria option 1
-        var option1 = document.createElement("option"); 
+        let option1 = document.createElement("option"); 
         option1.setAttribute("value", "Activo");
-        var option1text = document.createTextNode("a Receber");
+        let option1text = document.createTextNode("a Receber");
         option1.appendChild(option1text);
         //cria option 2
-        var option2 = document.createElement("option");
+        let option2 = document.createElement("option");
         option2.setAttribute("value", "Passivo");
-        var option2text = document.createTextNode("a Pagar");
+        let option2text = document.createTextNode("a Pagar");
         option2.appendChild(option2text);
 
         boxOpt.appendChild(option1); //Insere os campos OPTION no SELECT
         boxOpt.appendChild(option2);
-        td3.appendChild(boxOpt) //Insere o campo no TD (tabela)
+        td3.appendChild(boxOpt) //Insere o select/option no TD (tabela)
 
         //adiciona os campos na Div
         container.appendChild(td1)        
@@ -63,12 +62,11 @@ function addFields(){
 
         //Faz parágrafo
         const paragrafo = document.createElement("br")
-        container.appendChild(paragrafo)   
-
+        container.appendChild(paragrafo)  
 
     }
 }
 
 
 btn_campos.addEventListener("click", btn_func)
-btn_concluir.addEventListener("load", iniciarPagina())
+window.addEventListener("load", iniciarPagina())
