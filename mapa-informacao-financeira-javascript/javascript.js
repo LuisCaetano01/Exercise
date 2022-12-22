@@ -6,9 +6,9 @@ console.log(todosCampos)
 console.log(camposResultado)
 
 
+window.addEventListener("load",calcularExibirValores())
 
 todosCampos.map((el)=>{
-    el.addEventListener("load",calcularExibirValores())
     el.addEventListener("change",calcularExibirValores)
 })
 
