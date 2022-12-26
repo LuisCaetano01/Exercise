@@ -8,34 +8,39 @@
 </head>
 <body>
     <p><h1>Crie o seu orçamento familiar/individual</h1></p>
-        <table>
-            <thead>
-                <tr>
-                    <td><label>Descrição</label></td>
-                    <td><label>Valor em €</label></td>
-                    <td><label>Tipo</label></td>
-                </tr>
-            </thead>
-        </table>
-        <table>
-            <tbody id="campos">
-                <tr>
-                    <div id="orcamentoCampos">
-                        <!-- campos por javascript -->
-                    </div>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>
-                        <p>
-                            <input type="button" id="btnAumentarCampos" value="Aumentar Campos">
-                            <button id="btnConcluir">Concluir Orçamento
-                        </p>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+    <table id="tabelaCampos">
+        <thead>
+            <tr>
+                <td><label>Descrição</label></td>
+                <td><label>Valor em €</label></td>
+                <td><label>Tipo</label></td>
+            </tr>
+        </thead>
+    </table>
+    <table>
+        <tbody id="campos">
+            <tr>
+                <div id="orcamentoCampos">
+                    <!-- campos por javascript -->
+                </div>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <p>
+                        <input type="button" id="btnAumentarCampos" value="Aumentar Campos">
+                        <button id="btnConcluir">Concluir Orçamento
+                    </p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <table id="tabelaFinal">
+        <tr><div id="divActivo"></div></tr>
+        <tr><div id="divPassivo"></div></tr>
+    </table>
+
 
     
 

@@ -9,13 +9,58 @@ btn_campos.addEventListener("click", btn_add)
 window.addEventListener("load", iniciarPagina())
 
 function concluir_orcamente(){
-    const camposDescricao=document.getElementsByClassName("descricao")
-    const camposvalores=document.getElementsByClassName("valor")
+    const camposDescricao=[...document.getElementsByClassName("descricao")]
+    const camposValores=document.getElementsByClassName("valor")
     const camposSelect=document.getElementsByClassName("Select")
+    const divActivo=document.getElementById("divActivo")
+    const divPassivo=document.getElementById("divPassivo")
+    const tabelaEstilo=document.getElementById("tabelaFinal")
 
-    console.log(camposDescricao)
-    console.log(camposvalores)
-    console.log(camposSelect)
+    let estilo = "<style>"
+    estilo += "#tabelaFinal {width: 60%; font: 25px Calibri;}"
+    estilo += "td { border:solid}"
+    estilo += "#divActivo {border: solid 2px #888; border-collapse: collapse;"
+    estilo += "padding: 4px 8px; text-align:center;}"
+    estilo += "#divPassivo {border: solid 2px #888; border-collapse: collapse;"
+    estilo += "padding: 4px 8px; text-align:center;}"
+    estilo += "</style>"
+    tabelaEstilo.innerHTML= estilo
+
+    let totalActivo=0
+    let totalPassivo=0
+
+    camposDescricao.map((el,indice)=>{
+        if(!el.value==""){
+            if(camposSelect[indice].value=="Activo"){
+                let tabelaDescricao=document.createElement("td")
+                let tabelaValor=document.createElement("td")
+                tabelaDescricao.innerHTML = el.value
+                tabelaValor.innerHTML=camposValores[indice].value
+                totalActivo+=parseFloat(camposValores[indice].value)
+                divActivo.appendChild(tabelaDescricao)
+                divActivo.appendChild(tabelaValor)
+                divActivo.appendChild(document.createElement("br"))
+
+            }else{
+                let tabelaDescricao=document.createElement("td")
+                let tabelaValor=document.createElement("td")
+                tabelaDescricao.innerHTML = el.value
+                tabelaValor.innerHTML=camposValores[indice].value
+                totalPassivo+=parseFloat(camposValores[indice].value)
+                divPassivo.appendChild(tabelaDescricao)
+                divPassivo.appendChild(tabelaValor)
+                divPassivo.appendChild(document.createElement("br"))
+
+
+            }
+            console.log(el.value)
+            console.log(camposValores[indice].value)
+            console.log(camposSelect[indice].value)
+            
+        }
+
+
+    })
 }
 
 function iniciarPagina(){
