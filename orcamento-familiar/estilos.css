@@ -1,1 +1,30 @@
+#tabelaFinal{
+    width: 400px;
+}
 
+
+.td_descricao{
+    border:1px solid rgb(66, 66, 66);
+    border-spacing:0px;
+    margin: 0px;
+    padding: 0px;
+    /*border-radius: 5px;*/
+    width: 80%;
+}
+
+.td_valor{
+    border:1px solid rgb(66, 66, 66);
+    border-spacing:0px;
+    margin: 0px;
+    padding: 0px;
+    /*border-radius: 5px;*/
+}
+
+/*Elementos input*/
+    .descricao{
+        width: 250px;
+    }
+
+    .valor{
+        width: 100px;
+    }

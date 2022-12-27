@@ -13,7 +13,18 @@ function concluir_orcamente(){
     const camposValores=document.getElementsByClassName("valor")
     const camposSelect=document.getElementsByClassName("Select")
     const divActivo=document.getElementById("divActivo")
+    const divActivoValor=document.getElementById("divActivoValor")
     const divPassivo=document.getElementById("divPassivo")
+    const divPassivoValor=document.getElementById("divPassivoValor")
+    const balanco=document.getElementById("balanco")
+
+    //Retira o hidden da nova tabela de conclusão do orçamento
+    const activar=document.getElementById("tabelaFinal")
+    activar.removeAttribute("hidden")
+
+
+
+    /*
     const tabelaEstilo=document.getElementById("tabelaFinal")
 
     let estilo = "<style>"
@@ -25,43 +36,59 @@ function concluir_orcamente(){
     estilo += "padding: 4px 8px; text-align:center;}"
     estilo += "</style>"
     tabelaEstilo.innerHTML= estilo
+    */
 
     let totalActivo=0
+    let activoPreenchido = 0
     let totalPassivo=0
+    let passivoPreenchido = 0
+
+            
 
     camposDescricao.map((el,indice)=>{
-        if(!el.value==""){
+        if(!el.value=="" && !camposValores[indice].value =="" ){
             if(camposSelect[indice].value=="Activo"){
-                let tabelaDescricao=document.createElement("td")
-                let tabelaValor=document.createElement("td")
+                activoPreenchido = 1
+                let tabelaDescricao=document.createElement("p")
+                let tabelaValor=document.createElement("p")
                 tabelaDescricao.innerHTML = el.value
-                tabelaValor.innerHTML=camposValores[indice].value
+                tabelaValor.innerHTML=camposValores[indice].value + "€"
                 totalActivo+=parseFloat(camposValores[indice].value)
                 divActivo.appendChild(tabelaDescricao)
-                divActivo.appendChild(tabelaValor)
-                divActivo.appendChild(document.createElement("br"))
-
+                divActivoValor.appendChild(tabelaValor)
             }else{
-                let tabelaDescricao=document.createElement("td")
-                let tabelaValor=document.createElement("td")
+                passivoPreenchido = 1
+                let tabelaDescricao=document.createElement("p")
+                let tabelaValor=document.createElement("p")
                 tabelaDescricao.innerHTML = el.value
-                tabelaValor.innerHTML=camposValores[indice].value
+                tabelaValor.innerHTML=camposValores[indice].value + "€"
                 totalPassivo+=parseFloat(camposValores[indice].value)
                 divPassivo.appendChild(tabelaDescricao)
-                divPassivo.appendChild(tabelaValor)
-                divPassivo.appendChild(document.createElement("br"))
-
-
+                divPassivoValor.appendChild(tabelaValor)
             }
-            console.log(el.value)
-            console.log(camposValores[indice].value)
-            console.log(camposSelect[indice].value)
             
         }
 
-
     })
+    //Verifica se tem resultados para apresentar
+    if(activoPreenchido==0){
+        let semActivo=document.createElement("h3")
+        semActivo.innerHTML="Sem Resultados"
+        divActivo.appendChild(semActivo)
+    }
+    if(passivoPreenchido==0){
+        let semPassivo=document.createElement("h3")
+        semPassivo.innerHTML="Sem Resultados"
+        divPassivo.appendChild(semPassivo)
+    }
+
+    //Calcula e exibe valor do Balanço de contas
+    let tabelaBalanco=document.createElement("td")
+    tabelaBalanco.innerHTML = totalActivo - totalPassivo
+    balanco.appendChild(tabelaBalanco)
+
 }
+
 
 function iniciarPagina(){
     addFields(3)
@@ -71,8 +98,7 @@ function btn_add(){
     addFields(1)
 }
 
-//Variáveis da função addField
-var n_campos=0
+
 //Função para criar do zero e adicionar todos os campos de input, parametro para quantidade de campos
 function addFields(numeroCampos){   
     const container = document.getElementById("orcamentoCampos") //Div que vai receber os elementos 

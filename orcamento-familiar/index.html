@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./estilos.css">
     <title>Criar Orçamento</title>
 </head>
 <body>
@@ -36,9 +37,14 @@
             </tr>
         </tfoot>
     </table>
-    <table id="tabelaFinal">
-        <tr><div id="divActivo"></div></tr>
-        <tr><div id="divPassivo"></div></tr>
+
+    <table id="tabelaFinal" hidden>
+        <tr><td><h3>Activo</h3></td><td><h3>Valores</h3></td></tr>
+        <tr><td class="td_descricao"><div id="divActivo"></div></td><td class="td_valor"><div id="divActivoValor"></div></td></tr>
+        <tr><td><h3>Passivo</h3></td><td><h3>Valores</h3></td></tr>
+        <tr><td class="td_descricao"><div id="divPassivo"></div></td><td class="td_valor"><div id="divPassivoValor"></div></td></tr>
+        <tr><td><h4>Balanço de contas</h4></td><td><div id="balanco"></div></td></tr>
+
     </table>
 
 
