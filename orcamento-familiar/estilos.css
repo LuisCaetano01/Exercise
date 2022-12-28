@@ -1,5 +1,37 @@
+.label_descricao{
+    width:270px;
+}
+
+.label_Valor{
+    width:110px;
+}
+
+.label_tipo{
+    width: 100px;
+    text-align: center;
+}
+
+
+
 #tabelaFinal{
     width: 400px;
+    border-collapse: collapse;
+    border:1px solid rgb(66, 66, 66);
+    background-color: rgb(218, 218, 218);
+}
+
+#titulo{
+    border-spacing:5px;
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+#tituloVal{
+    border-spacing:5px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
 }
 
 
@@ -7,9 +39,11 @@
     border:1px solid rgb(66, 66, 66);
     border-spacing:0px;
     margin: 0px;
+    /*text-align:left;*/
     padding: 0px;
     /*border-radius: 5px;*/
     width: 80%;
+    background-color: rgb(255, 255, 255);
 }
 
 .td_valor{
@@ -17,6 +51,9 @@
     border-spacing:0px;
     margin: 0px;
     padding: 0px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+
     /*border-radius: 5px;*/
 }
 

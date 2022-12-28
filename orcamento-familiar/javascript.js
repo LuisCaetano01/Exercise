@@ -1,11 +1,31 @@
-const inserirCampos=document.querySelector(".orcamentocriado")
 const btn_campos=document.querySelector("#btnAumentarCampos")
 const btn_concluir=document.querySelector("#btnConcluir")
-const tbodyCampos=document.querySelector("tbody")
+
 
 btn_concluir.addEventListener("click", concluir_orcamente)
 btn_campos.addEventListener("click", btn_add)
 window.addEventListener("load", iniciarPagina())
+
+//Botao criar PDF e função para imprimir apenas a tabela
+const btn_imp=document.getElementById("btn_imp")
+btn_imp.addEventListener("click",(evt)=>{
+    const tabelaFinal=document.getElementById("tabelaFinal").innerHTML
+    let estilo = "<style>"
+    estilo += "table {width: 80%; border-collapse: collapse; border-spacing:0px;}"
+    estilo += "td { border:solid}"
+    estilo += "#tituloVal{text-align: center;}"
+    estilo += ".td_valor {width: 20%; text-align: center;}"
+    estilo += "</style>"
+    const win = window.open("","","height=500,width=700")
+    win.document.write("<html><head>")
+    win.document.write("<title>Orçamento</title>")
+    win.document.write(estilo)
+    win.document.write("</head>")
+    win.document.write("<body>")
+    win.document.write("<table>" + tabelaFinal + "</table")
+    win.document.write("</body></html>")
+    win.print()   
+})
 
 function concluir_orcamente(){
     const camposDescricao=[...document.getElementsByClassName("descricao")]
@@ -17,59 +37,24 @@ function concluir_orcamente(){
     const divPassivoValor=document.getElementById("divPassivoValor")
     const balanco=document.getElementById("balanco")
 
-    if(divActivo.contains && divPassivo.contains){
-        for(el of divActivo.children){
-            console.log(el)
+    //Apaga todos os campos criados da tabelaFinal
+    if(divActivo.hasChildNodes && divPassivo.hasChildNodes){
+        const apagarElementos=[...document.getElementsByClassName("apagar")]
+        apagarElementos.map((el)=>{
             el.remove()
-        }
-        for(el of divActivoValor.children){
-            console.log(el)
-            el.remove()
-        }
-        for(el of divPassivo.children){
-            console.log(el)
-            el.remove()
-        }
-        for(el of divPassivoValor.children){
-            console.log(el)
-            el.remove()
-        }
-        for(el of balanco.children){
-            console.log(el)
-            el.remove()
-        }
+        })     
     }
 
-
-    //Retira o hidden da nova tabela de conclusão do orçamento
+    //Retira o hidden do botao PDF e da nova tabela de conclusão do orçamento
     const activar=document.getElementById("tabelaFinal")
     activar.removeAttribute("hidden")
+    btn_imp.removeAttribute("hidden")
 
-
-
-    /*
-    const tabelaEstilo=document.getElementById("tabelaFinal")
-
-    let estilo = "<style>"
-    estilo += "#tabelaFinal {width: 60%; font: 25px Calibri;}"
-    estilo += "td { border:solid}"
-    estilo += "#divActivo {border: solid 2px #888; border-collapse: collapse;"
-    estilo += "padding: 4px 8px; text-align:center;}"
-    estilo += "#divPassivo {border: solid 2px #888; border-collapse: collapse;"
-    estilo += "padding: 4px 8px; text-align:center;}"
-    estilo += "</style>"
-    tabelaEstilo.innerHTML= estilo
-    */
 
     let totalActivo=0
     let activoPreenchido = 0
     let totalPassivo=0
     let passivoPreenchido = 0
-
-    
-   
-
-
             
 
     camposDescricao.map((el,indice)=>{
@@ -80,6 +65,8 @@ function concluir_orcamente(){
                 let tabelaValor=document.createElement("p")
                 tabelaDescricao.innerHTML = el.value
                 tabelaValor.innerHTML=camposValores[indice].value + "€"
+                tabelaDescricao.setAttribute("class", "apagar")
+                tabelaValor.setAttribute("class", "apagar")
                 totalActivo+=parseFloat(camposValores[indice].value)
                 divActivo.appendChild(tabelaDescricao)
                 divActivoValor.appendChild(tabelaValor)
@@ -89,6 +76,8 @@ function concluir_orcamente(){
                 let tabelaValor=document.createElement("p")
                 tabelaDescricao.innerHTML = el.value
                 tabelaValor.innerHTML=camposValores[indice].value + "€"
+                tabelaDescricao.setAttribute("class", "apagar")
+                tabelaValor.setAttribute("class", "apagar")
                 totalPassivo+=parseFloat(camposValores[indice].value)
                 divPassivo.appendChild(tabelaDescricao)
                 divPassivoValor.appendChild(tabelaValor)
@@ -102,19 +91,34 @@ function concluir_orcamente(){
 
     //Verifica se tem resultados para apresentar
     if(activoPreenchido==0){
-        let semActivo=document.createElement("h3")
+        let semActivo=document.createElement("p")
         semActivo.innerHTML="Sem Resultados"
+        semActivo.setAttribute("class", "apagar")
         divActivo.appendChild(semActivo)
     }
     if(passivoPreenchido==0){
-        let semPassivo=document.createElement("h3")
+        let semPassivo=document.createElement("p")
         semPassivo.innerHTML="Sem Resultados"
+        semPassivo.setAttribute("class", "apagar")
         divPassivo.appendChild(semPassivo)
     }
 
+    //Exibir total do Activo e Passivo
+    const divActivoTotal=document.getElementById("divActivoTotal")
+    const divPassivoTotal=document.getElementById("divPassivoTotal")
+    let aTotal=document.createElement("p")
+    aTotal.innerHTML = totalActivo + "€"
+    aTotal.setAttribute("class", "apagar")
+    divActivoTotal.appendChild(aTotal)
+    let pTotal=document.createElement("p")
+    pTotal.innerHTML = totalPassivo + "€"
+    pTotal.setAttribute("class", "apagar")
+    divPassivoTotal.appendChild(pTotal)
+
     //Calcula e exibe valor do Balanço de contas
-    let tabelaBalanco=document.createElement("td")
-    tabelaBalanco.innerHTML = totalActivo - totalPassivo
+    let tabelaBalanco=document.createElement("p")
+    tabelaBalanco.innerHTML = (totalActivo - totalPassivo)+ "€"
+    tabelaBalanco.setAttribute("class", "apagar")
     balanco.appendChild(tabelaBalanco)
 
 }

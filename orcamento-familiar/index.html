@@ -12,9 +12,9 @@
     <table id="tabelaCampos">
         <thead>
             <tr>
-                <td><label>Descrição</label></td>
-                <td><label>Valor em €</label></td>
-                <td><label>Tipo</label></td>
+                <td><div class="label_descricao"><label>Descrição</label></div></td>
+                <td><div class="label_valor"><label class="label_valor">Valor em €</label></div></td>
+                <td><div class="label_tipo"><label class="label_tipo">Tipo</label></div></td>
             </tr>
         </thead>
     </table>
@@ -39,13 +39,15 @@
     </table>
 
     <table id="tabelaFinal" hidden>
-        <tr><td><h3>Activo</h3></td><td><h3>Valores</h3></td></tr>
+        <tr><td><h3 id="titulo">Activo</h3></td><td><h3 id="tituloVal">Valores</h3></td></tr>
         <tr><td class="td_descricao"><div id="divActivo"></div></td><td class="td_valor"><div id="divActivoValor"></div></td></tr>
-        <tr><td><h3>Passivo</h3></td><td><h3>Valores</h3></td></tr>
+        <tr><td class="td_descricao"><p>Total</p></td><td class="td_valor"><div id="divActivoTotal"></div></td></tr>
+        <tr><td><h3 id="titulo">Passivo</h3></td><td><h3 id="tituloVal">Valores</h3></td></tr>
         <tr><td class="td_descricao"><div id="divPassivo"></div></td><td class="td_valor"><div id="divPassivoValor"></div></td></tr>
-        <tr><td><h4>Balanço de contas</h4></td><td><div id="balanco"></div></td></tr>
-
+        <tr><td class="td_descricao"><p>Total</p></td><td class="td_valor"><div id="divPassivoTotal"></div></td></tr>
+        <tr><td><h4>Balanço de contas</h4></td><td class="td_valor"><div id="balanco"></div></td></tr>
     </table>
+    <button id="btn_imp" hidden>Imprimir/criar PDF</button>
 
 
     
