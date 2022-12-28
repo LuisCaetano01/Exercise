@@ -1,4 +1,3 @@
-const todosCampos=document.querySelectorAll(".orcamentoCampos") //Campos do Orçamento | n está a ser usado.
 const inserirCampos=document.querySelector(".orcamentocriado")
 const btn_campos=document.querySelector("#btnAumentarCampos")
 const btn_concluir=document.querySelector("#btnConcluir")
@@ -17,6 +16,30 @@ function concluir_orcamente(){
     const divPassivo=document.getElementById("divPassivo")
     const divPassivoValor=document.getElementById("divPassivoValor")
     const balanco=document.getElementById("balanco")
+
+    if(divActivo.contains && divPassivo.contains){
+        for(el of divActivo.children){
+            console.log(el)
+            el.remove()
+        }
+        for(el of divActivoValor.children){
+            console.log(el)
+            el.remove()
+        }
+        for(el of divPassivo.children){
+            console.log(el)
+            el.remove()
+        }
+        for(el of divPassivoValor.children){
+            console.log(el)
+            el.remove()
+        }
+        for(el of balanco.children){
+            console.log(el)
+            el.remove()
+        }
+    }
+
 
     //Retira o hidden da nova tabela de conclusão do orçamento
     const activar=document.getElementById("tabelaFinal")
@@ -42,6 +65,10 @@ function concluir_orcamente(){
     let activoPreenchido = 0
     let totalPassivo=0
     let passivoPreenchido = 0
+
+    
+   
+
 
             
 
@@ -70,6 +97,9 @@ function concluir_orcamente(){
         }
 
     })
+
+
+
     //Verifica se tem resultados para apresentar
     if(activoPreenchido==0){
         let semActivo=document.createElement("h3")
